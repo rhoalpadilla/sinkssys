@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee List - Sinks R Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold mb-6">Employee List</h2>
+    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+      <thead>
+        <tr class="bg-gray-800 text-white">
+          <th class="w-1/4 py-2">Name</th>
+          <th class="w-1/4 py-2">Job Title</th>
+          <th class="w-1/4 py-2">Department</th>
+          <th class="w-1/4 py-2">Email</th>
+          <th class="w-1/4 py-2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Employee rows -->
+        <tr class="border-b">
+          <td class="py-3 px-6">Ivan Petrov</td>
+          <td class="py-3 px-6">Software Engineer</td>
+          <td class="py-3 px-6">IT</td>
+          <td class="py-3 px-6">ivan.petrov@sinksrus.com</td>
+          <td class="py-3 px-6">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openModal('Ivan Petrov')">View</button>
+          </td>
+        </tr>
+         <tr class="border-b">
+           <td class="py-3 px-6">Pedro Los Baños</td>
+           <td class="py-3 px-6">Marketing Manager</td>
+           <td class="py-3 px-6">Marketing</td>
+           <td class="py-3 px-6">pedro_los_banos@sinksrus.com</td>
+           <td class="py-3 px-6">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openModal('employeeName')">View</button>
+          </td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-3 px-6">Ana Gómez</td>
+          <td class="py-3 px-6">HR Specialist</td>
+          <td class="py-3 px-6">HR</td>
+          <td class="py-3 px-6">ana.gomez@sinksrus.com</td>
+          <td class="py-3 px-6">
+           <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openModal('employeeName')">View</button>
+         </td>
+       </tr>
+       <tr class="border-b">
+        <td class="py-3 px-6">John Wu</td>
+        <td class="py-3 px-6">Sales Associate</td>
+        <td class="py-3 px-6">Sales</td>
+        <td class="py-3 px-6">john.wu@sinksrus.com</td>
+        <td class="py-3 px-6">
+         <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openModal('employeeName')">View</button>
+       </td>
+     </tr>
+     <tr class="border-b">
+      <td class="py-3 px-6">Emma Wilson</td>
+      <td class="py-3 px-6">CEO</td>
+      <td class="py-3 px-6">Admin</td>
+      <td class="py-3 px-6">emma@sinksrus.com</td>
+      <td class="py-3 px-6">
+       <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="openModal('employeeName')">View</button>
+     </td>
+   </tr>
+      </tbody>
+    </table>
+  </div>
+   <!-- Modal -->
+   <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+      <h3 id="employeeName" class="text-2xl font-bold mb-4">Employee Info</h3>
+      <p id="employeeDetails" class="mb-4">Details here...</p>
+      <button class="bg-red-500 text-white px-4 py-2 rounded" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal(employeeName) {
+      document.getElementById('employeeName').innerText = employeeName;
+      document.getElementById('employeeDetails').innerText = 'Additional employee details go here.';
+      document.getElementById('modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+  </script>
+</body>
+
+</html>
