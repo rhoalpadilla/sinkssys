@@ -13,6 +13,9 @@
       <thead>
         <tr class="bg-gray-800 text-white">
           <th class="w-1/4 py-2">Name</th>
+          <th class="w-1/4 py-2">Job title</th>
+          <th class="w-1/4 py-2">Department</th>
+          <th class="w-1/4 py-2">Email</th>
           <th class="w-1/4 py-2">Action</th>
         </tr>
       </thead>
@@ -20,38 +23,55 @@
         <!-- Employee rows -->
         <tr class="border-b">
           <td class="py-3 px-6">Ivan Petrov</td>
+          <td class="py-3 px-6">Software Engineer</td>
+          <td class="py-3 px-6">IT</td>
+          <td class="py-3 px-6">ivan.petrov@sinksrus.com</td>
           <td class="py-3 px-6 text-center">
           <button class="bg-blue-500 text-white px-4 py-2 rounded mx-auto" 
-                    onclick="openModal('Ivan Petrov', 'Software Engineer', 'IT', 'ivan.petrov@sinksrus.com')">View</button>
+                    onclick="openModal('55-6789', '12 Red Square, Moscow', 'Male', 'Single')">View</button>
           </td>
         </tr>
          <tr class="border-b">
            <td class="py-3 px-6">Pedro Los Baños</td>
-           <td class="py-3 px-6 text-center">
-            <button class="bg-blue-500 text-white px-4 py-2 rounded mx-auto" 
-                    onclick="openModal('pedro los banos', 'Marketing Manager', 'Marketing', 'pedro_los_banos@sinksrus.com')">View</button>
+           <td class="py-3 px-6">Marketing Manager</td>
+          <td class="py-3 px-6">Marketing</td>
+          <td class="py-3 px-6">pedro.los_banos@sinksrus.com</td>
+          <td class="py-3 px-6 text-center">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded" 
+                    onclick="openModal('Pedro Los Baños', ' ', '123 Mabini St', 'Male', 'Married')">View</button>
           </td>
         </tr>
         <tr class="border-b">
           <td class="py-3 px-6">Ana Gómez</td>
+          <td class="py-3 px-6">HR Specialist</td>
+          <td class="py-3 px-6">HR</td>
+          <td class="py-3 px-6">ana.gomez@sinksrus.com</td>
           <td class="py-3 px-6 text-center">
-           <button class="bg-blue-500 text-white px-4 py-2 rounded mx-auto" 
-                    onclick="openModal('Ana Gómez', 'HR Specialist', 'HR', 'ana.gomez@sinksrus.com')">View</button>
-         </td>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded" 
+                    onclick="openModal('Ana Gómez', '555-1526', ' ', 'Female', 'Divorced')">View</button>
+          </td>
        </tr>
        <tr class="border-b">
         <td class="py-3 px-6">John Wu</td>
-        <td class="py-3 px-6 text-center">
-         <button class="bg-blue-500 text-white px-4 py-2 rounded mx-auto" 
-                    onclick="openModal('John Wu', 'Sales Associate', 'Sales', 'John.wu@sinksrus.com')">View</button>
-       </td>
+        <td class="py-3 px-6">John Wu</td>
+          <td class="py-3 px-6">Sales Associate</td>
+          <td class="py-3 px-6">Sales</td>
+          <td class="py-3 px-6">john.wu@sinksrus.com</td>
+          <td class="py-3 px-6 text-center">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded" 
+                    onclick="openModal('John Wu', '555-6925', '456 Rizal St', 'Male', 'Single')">View</button>
+          </td>
      </tr>
      <tr class="border-b">
       <td class="py-3 px-6">Emma Wilson</td>
+      <td class="py-3 px-6">Emma Wilson</td>
+      <td class="py-3 px-6">CEO</td>
+      <td class="py-3 px-6">Admin</td>
+      <td class="py-3 px-6">emma@sinksrus.com</td>
       <td class="py-3 px-6 text-center">
-        <button class="bg-blue-500 text-white px-4 py-2 rounded mx-auto" 
-                    onclick="openModal('Emma Wilson', 'CEO', 'Admin', 'emma@sinksrus.com')">View</button>
-     </td>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded" 
+                onclick="openModal('Emma Wilson', '555-1111', ' ', 'Female', 'Married')">View</button>
+      </td>
    </tr>
       </tbody>
     </table>
@@ -60,17 +80,21 @@
    <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
     <div class="bg-white p-8 rounded-lg shadow-lg w-96">
       <h3 id="employeeName" class="text-2xl font-bold mb-4">Employee Info</h3>
-      <p id="employeeJobTitle" class="mb-2"></p>
-      <p id="employeeDepartment" class="mb-2"></p>
-      <p id="employeeEmail" class="mb-4"></p>
+      <p id="employeeContactNo" class="mb-2"></p>
+      <p id="employeeAddress" class="mb-2"></p>
+      <p id="employeeSex" class="mb-2"></p>
+      <p id="employeeMaritalStatus" class="mb-4"></p>
       <button class="bg-red-500 text-white px-4 py-2 rounded" onclick="closeModal()">Close</button>
     </div>
   </div>
 
   <script>
-    function openModal(employeeName) {
-      document.getElementById('employeeName').innerText = employeeName;
-      document.getElementById('employeeDetails').innerText = 'Additional employee details go here.';
+    function openModal(name, contactNo, address, sex, maritalStatus) {
+      document.getElementById('employeeName').innerText = name;
+      document.getElementById('employeeContactNo').innerText = "Contact No: " + contactNo;
+      document.getElementById('employeeAddress').innerText = "Address: " + address;
+      document.getElementById('employeeSex').innerText = "Sex: " + sex;
+      document.getElementById('employeeMaritalStatus').innerText = "Marital Status: " + maritalStatus;
       document.getElementById('modal').classList.remove('hidden');
     }
 
